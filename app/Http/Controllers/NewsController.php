@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index(Request $request): Response
     {
         $news = News::active()
-            ->where('title', 'like', "%$request->search%")
+            ->where('judul', 'like', "%$request->search%")
             ->latest()
             ->paginate(10)
             ->withQueryString();
@@ -46,7 +46,7 @@ class NewsController extends Controller
     {
         $news->turnOff();
 
-        return \redirect()->route('admin.news.index')->with('success', "$news->title berhasil dihapus");
+        return \redirect()->route('dashboard.news.index')->with('success', "$news->title berhasil dihapus");
     }
 
     public function headline(News $news): RedirectResponse
@@ -55,46 +55,46 @@ class NewsController extends Controller
         $news->save();
         $message = $news->headline ? 'menjadi berita utama' : 'tidak menjadi berita utama';
 
-        return \redirect()->route('admin.news.index')->with('success', "$news->title $message");
+        return \redirect()->route('dashboard.news.index')->with('success', "$news->title $message");
     }
 
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'title' => 'required|string|max:150',
-            'news_label_id' => 'required',
-            'content' => 'required|string',
-            'desc' => 'required|string|max:250',
+            'judul' => 'required|string|max:150',
+            'kategori_id' => 'required',
+            'konten' => 'required|string',
+            'desk_singkat' => 'required|string|max:250',
         ]);
 
         if ($request->has('id')) {
-            $itemType = News::find($request->id);
-            $itemType->update([
-                'title' => $request->title,
-                'content' => $request->content,
-                'desc' => $request->desc,
-                'author' => Auth::user()->name,
-                'news_label_id' => $request->news_label_id,
+            $news = News::find($request->id);
+            $news->update([
+                'judul' => $request->judul,
+                'kategori_id' => $request->kategori_id,
+                'konten' => $request->konten,
+                'penulis' => Auth::user()->name,
+                'desk_singkat' => $request->desk_singkat,
             ]);
-            $message = "$request->title berhasil diperbarui";
+            $message = "$request->judul berhasil diperbarui";
         } else {
             $request->validate([
-                'image' => 'required|max:1024',
+                'gambar' => 'required|max:1024',
             ]);
-            $path = config('app.berita_content_path');
-            $coverFileName = uniqid('cover-').'.'.$request->image->extension();
-            $request->image->move(public_path($path), $coverFileName);
+            $path = config('app.path_gambar_berita');
+            $coverFileName = uniqid('cover-').'.'.$request->gambar->extension();
+            $request->gambar->move(public_path($path), $coverFileName);
             News::create([
-                'title' => $request->title,
-                'content' => $request->content,
-                'desc' => $request->desc,
-                'author' => Auth::user()->name,
-                'news_label_id' => $request->news_label_id,
-                'image' => $path.'/'.$coverFileName,
+                'judul' => $request->judul,
+                'kategori_id' => $request->kategori_id,
+                'konten' => $request->konten,
+                'penulis' => Auth::user()->name,
+                'desk_singkat' => $request->desk_singkat,
+                'gambar' => $path.'/'.$coverFileName,
             ]);
             $message = "$request->title berhasil ditambahkan";
         }
 
-        return \redirect()->route('admin.news.index')->with('success', $message);
+        return \redirect()->route('dashboard.news.index')->with('success', $message);
     }
 }

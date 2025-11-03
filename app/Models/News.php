@@ -8,6 +8,7 @@ class News extends BaseModel
 
     protected $fillable = [
         'judul',
+        'kategori_id',
         'konten',
         'desk_singkat',
         'gambar',

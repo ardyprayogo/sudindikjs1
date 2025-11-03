@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewsCategoryController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
         Route::delete('/delete/{category}', [NewsCategoryController::class, 'delete'])->name('dashboard.newsCategory.delete');
         Route::get('/update/{category}', [NewsCategoryController::class, 'update'])->name('dashboard.newsCategory.update');
         Route::post('/store', [NewsCategoryController::class, 'store'])->name('dashboard.newsCategory.store');
+    });
+
+    Route::prefix('berita')->group(function () {
+        Route::get('/', [NewsController::class, 'index'])->name('dashboard.news.index');
+        Route::get('/create', [NewsController::class, 'create'])->name('dashboard.news.create');
+        Route::delete('/delete/{news}', [NewsController::class, 'delete'])->name('dashboard.news.delete');
+        Route::get('/update/{news}', [NewsController::class, 'update'])->name('dashboard.news.update');
+        Route::post('/store', [NewsController::class, 'store'])->name('dashboard.news.store');
     });
 });
 

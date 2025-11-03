@@ -16,7 +16,7 @@ export default function DashboardIndex({ categories, query }) {
     });
     return (
         <AuthenticatedLayout>
-            <Head title="Label Berita" />
+            <Head title="Kategori Berita" />
             <div className="overflow-x-auto flex flex-col gap-2">
                 <div className="flex flex-row justify-end">
                     <Link
@@ -35,7 +35,7 @@ export default function DashboardIndex({ categories, query }) {
                             id="search"
                             name="search"
                             className="w-full"
-                            placeholder="Cari Label"
+                            placeholder="Cari Kategori Berita"
                             value={data.search}
                             onChange={(e) => {
                                 setData("search", e.target.value);

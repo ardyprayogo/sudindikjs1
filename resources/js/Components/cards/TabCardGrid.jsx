@@ -61,69 +61,81 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 export default ({
   heading = "Checkout the Menu",
   tabs = {
-    SD: [
+    Sekolah: [
   {
     imageSrc:
-      "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noC9sjyJUi5EaIk0pVJSh8iZdiNcZjEj7kSCbnJGKwhYTqamPbpPcKPDLzRCGr4pGhAMHM0rGepHTnz9S2NaqR5eLztGRmli8Nwphlw2k4wnwZSq4rTg3r4iAn8iQiekMG6I36RXg=s563-k-no",
-    title: "SDN 4 Ciganjur",
-    content: "Sekolah Dasar Negeri di Ciganjur, Jakarta Selatan",
+      "https://demix.co.id/wp-content/uploads/2025/07/sekolah-cikal-lebak-bulus.webp",
+    title: "Cilandak",
+    content: "🏫 Negeri: 44; 🏢 Swasta: 184",
     price: "-",
-    rating: "4.5",
-    reviews: "80",
-    url: ""  // kamu bilang url tidak tersedia
+    rating: "228",
+    url: ""  
   },
   {
     imageSrc:
-      "https://sdnpancoran01-jaksel.sch.id/images/foto/HUT-RI-240221213459.jpg",
-    title: "SDN Pancoran 01",
-    content: "Sekolah Dasar Negeri Pancoran 01, Jakarta Selatan",
+      "https://stellarhome.totalit.co.id/media/fasilitas/image/Sekolah%20Dasar%20Islam%20Al%20Azhar%20Bumi%20Serpong%20Damai-65b7562aafc3e.jpg",
+    title: "Jagakarsa",
+    content: "🏫 Negeri: 63; 🏢 Swasta: 218",
     price: "-",
-    rating: "4.6",
-    reviews: "105",
-    url: "https://sdnpancoran01-jaksel.sch.id"
+    rating: "281",
+    url: ""  
   },
   {
     imageSrc:
-      "https://www.sdn-pondoklabu03.sch.id/upload/picture/66005576sdnpola03.png",
-    title: "SDN Pondok Labu 03",
-    content: "Sekolah Dasar Negeri Pondok Labu 03, Jakarta Selatan",
+      "https://www.pinhome.id/info-area/wp-content/uploads/2023/09/Capture-342.jpg",
+    title: "Kebayoran Lama",
+    content: "🏫 Negeri: 56; 🏢 Swasta: 211",
     price: "-",
-    rating: "4.7",
-    reviews: "92",
-    url: "https://www.sdn-pondoklabu03.sch.id"
-  }
+    rating: "267",
+    url: ""  
+  },
+  {
+    imageSrc:
+      "https://media.suara.com/pictures/653x366/2023/09/26/85144-sdn-06-petukangan-utara-pesanggrahan.webp",
+    title: "Pesanggrahan",
+    content: "🏫 Negeri: 50; 🏢 Swasta: 149",
+    price: "-",
+    rating: "199",
+    url: ""  
+  },
     ],
-    SMP: [
+    Murid: [
   {
     imageSrc:
-      "https://smpn12jkt.sch.id/sitepad-data/uploads/2023/12/img5.jpg",
-    title: "SMP Negeri 12 Jakarta",
-    content: "Sekolah Menengah Pertama Negeri di Jakarta Selatan",
+      "https://asset-2.tribunnews.com/tribunnews/foto/bank/images/Ilustrasi-pelajar-SD-SMA-hasil-olah-AI-Gemini.jpg",
+    title: "Cilandak",
+    content: "🏫 Negeri: 19929; 🏢 Swasta: 22776",
     price: "-",
-    rating: "4.8",
-    reviews: "120",
-    url: "https://smpn12jkt.sch.id/"
+    rating: "42705",
+    url: ""  
   },
   {
     imageSrc:
-      "https://smpn240.sch.id/tinymce/source/album/131145_gedungsekolah.jpeg",
-    title: "SMP Negeri 240 Jakarta",
-    content: "Sekolah Negeri dengan fasilitas memadai di Jakarta Selatan",
+      "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/177/2024/07/09/alma-2114279067.jpg",
+    title: "Jagakarsa",
+    content: "🏫 Negeri: 31422; 🏢 Swasta: 26052",
     price: "-",
-    rating: "4.7",
-    reviews: "95",
-    url: "https://smpn240.sch.id/"
+    rating: "57474",
+    url: ""  
   },
   {
     imageSrc:
-      "https://smpn267jakarta.sch.id/wp-content/uploads/2021/12/sl1-2048x674.jpg",
-    title: "SMP Negeri 267 Jakarta",
-    content: "SMP Negeri unggulan di kawasan Jakarta Selatan",
+      "https://cms.westjavatoday.com/uploads/images/2021/12/image_750x_61c2f58811a19.jpg",
+    title: "Kebayoran Lama",
+    content: "🏫 Negeri: 27468; 🏢 Swasta: 19154",
     price: "-",
-    rating: "4.9",
-    reviews: "134",
-    url: "https://smpn267jakarta.sch.id/"
-  }
+    rating: "46622",
+    url: ""  
+  },
+  {
+    imageSrc:
+      "https://asset-2.tribunnews.com/kupang/foto/bank/images/siswa-tahun-ajaran-baru-ilustrasi.jpg",
+    title: "Pesanggrahan",
+    content: "🏫 Negeri: 22148; 🏢 Swasta: 17909",
+    price: "-",
+    rating: "40057",
+    url: ""  
+  },
     ],
   //   SMA: [
   // {
@@ -241,10 +253,10 @@ export default ({
                   <CardImageContainer imageSrc={card.imageSrc}>
                     <CardRatingContainer>
                       <CardRating>
-                        <StarIcon />
+                        <span style={{ marginRight: '5px' }}>📊</span> 
                         {card.rating}
                       </CardRating>
-                      <CardReview>({card.reviews})</CardReview>
+                      {/* <CardReview>({card.reviews})</CardReview> */}
                     </CardRatingContainer>
                     <CardHoverOverlay
                       variants={{

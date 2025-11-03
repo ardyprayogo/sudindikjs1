@@ -37,15 +37,15 @@ const CustomerCompany = tw.p`mt-1 text-sm text-gray-500`
 
 export default ({
   heading = "Visi & Misi",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  description = "“Mewujudkan Pendidikan yang Tuntas dan Berkualitas untuk Semua”",
   imageSrc = "https://www.unas.ac.id/wp-content/uploads/2025/06/DSC04809.jpg",
   imageDecoratorBlob = true,
   primaryButtonUrl = "https://google.com",
   primaryButtonText = "Selebihnya",
   buttonRounded = true,
-  features = ["Misi 1", "Misi 2", "Misi 3"],
+  features = ["Mewujudkan akses yang merata dan berkeadilan", "Mewujudkan Pembelajaran yang bermutu", "Mewujudkan efektivitas birokrasi dalam pelayanan Pendidikan"],
   testimonial = {
-    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    quote: "",
     customerName: "Bapak Sarwoko",
     customerCompany: "Kepala Suku Dinas Pendidikan Jakarta Selatan Wilayah 1"
   }

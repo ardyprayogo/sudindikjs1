@@ -128,8 +128,8 @@ export default () => {
       <TabCardGrid
         heading={
           <>
-            <div id="galeri"></div>
-            <HighlightedText>Galeri.</HighlightedText>
+            <div id="infografis"></div>
+            <HighlightedText>Infografis</HighlightedText>
           </>
         }
       />

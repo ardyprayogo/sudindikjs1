@@ -28,7 +28,7 @@ export default defineConfig({
                 '**/Images/email-illustration.svg',
             ],
             svgrOptions: {
-                icon: false,
+                icon: false, // Ini agar SVGR tidak menganggap SVG sebagai ikon secara default
             },
         })
     ],
@@ -40,8 +40,16 @@ export default defineConfig({
         },
     },
     define: {
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-        'process.env.BABEL_ENV': JSON.stringify(process.env.BABEL_ENV || 'development'),
-        'process.versions.node': JSON.stringify('16.0.0'), 
+        // Mendefinisikan objek global 'process' agar properti di dalamnya bisa diakses
+        'process': {
+            env: {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production'), // Gunakan 'production' untuk build
+                BABEL_ENV: JSON.stringify(process.env.BABEL_ENV || 'production'), // Sesuaikan jika ada perbedaan
+            },
+            platform: JSON.stringify('browser'), // Mengganti process.platform dengan 'browser'
+            versions: {
+                node: JSON.stringify('16.0.0'), // Mengganti process.versions.node jika diperlukan
+            }
+        }
     },
 });

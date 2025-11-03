@@ -38,15 +38,7 @@ export default defineConfig({
         },
     },
     define: {
-        // "process.env.NODE_ENV": JSON.stringify(
-        //     process.env.NODE_ENV || "development"
-        // ),
-        // "process.env.BABEL_ENV": JSON.stringify(
-        //     process.env.BABEL_ENV || "development"
-        // ),
-        "process.versions.node": JSON.stringify("22.16.0"),
-        "process.versions": JSON.stringify("test"),
-        "process.platform": JSON.stringify(process.platform),
+        process,
     },
     build: {
         chunkSizeWarningLimit: 5000,

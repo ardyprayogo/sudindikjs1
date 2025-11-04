@@ -3,6 +3,7 @@
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -35,6 +36,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
         Route::delete('/delete/{news}', [NewsController::class, 'delete'])->name('dashboard.news.delete');
         Route::get('/update/{news}', [NewsController::class, 'update'])->name('dashboard.news.update');
         Route::post('/store', [NewsController::class, 'store'])->name('dashboard.news.store');
+    });
+
+    Route::prefix('pengguna')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('dashboard.user.index');
+        Route::get('/create', [UserController::class, 'create'])->name('dashboard.user.create');
+        Route::delete('/delete/{user}', [UserController::class, 'delete'])->name('dashboard.user.delete');
+        Route::get('/update/{user}', [UserController::class, 'update'])->name('dashboard.user.update');
+        Route::post('/store', [UserController::class, 'store'])->name('dashboard.user.store');
     });
 });
 

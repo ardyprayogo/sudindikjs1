@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('konten')->comment('Isi Berita');
             $table->text('desk_singkat')->comment('Deskripsi Singkat Berita');
             $table->string('gambar')->nullable()->comment('Gambar Berita');
-            $table->tinyInteger('pilihan')->default(1)->comment('1: pilihan, 0: tidak')->index();
+            $table->tinyInteger('pilihan')->default(0)->comment('1: pilihan, 0: tidak')->index();
             $table->tinyInteger('status')->default(1)->comment('1: Aktif, 0: Tidak Aktif')->index();
             $table->string('penulis')->comment('Penulis Berita');
             $table->timestamps();

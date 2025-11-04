@@ -43,9 +43,9 @@ export default function AuthenticatedLayout({ header, children }) {
                                     Kategori Berita
                                 </NavLink>
                                 <NavLink
-                                    href={route("dashboard.newsCategory.index")}
+                                    href={route("dashboard.news.index")}
                                     active={route().current(
-                                        "dashboard.newsCategory.index"
+                                        "dashboard.news.index"
                                     )}
                                 >
                                     Berita
@@ -153,6 +153,21 @@ export default function AuthenticatedLayout({ header, children }) {
                             active={route().current("dashboard")}
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink
+                            href={route("dashboard.newsCategory.index")}
+                            active={route().current(
+                                "dashboard.newsCategory.index"
+                            )}
+                        >
+                            Kategori Berita
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("dashboard.news.index")}
+                            active={route().current("dashboard.news.index")}
+                        >
+                            Berita
                         </ResponsiveNavLink>
                     </div>
 

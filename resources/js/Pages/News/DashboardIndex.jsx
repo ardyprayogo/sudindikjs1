@@ -8,8 +8,8 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function DashboardIndex({ news, query }) {
     const { delete: destroy } = useForm();
-    const deleteNewsCategory = (id) => {
-        destroy(route("dashboard.newsCategory.delete", id));
+    const deleteNews = (id) => {
+        destroy(route("dashboard.news.delete", id));
     };
     const { data, setData, get } = useForm({
         search: query.search || "",

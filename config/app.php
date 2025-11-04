@@ -105,6 +105,8 @@ return [
         ),
     ],
 
+    'path_gambar_berita' => env('PATH_GAMBAR_BERITA'),
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver

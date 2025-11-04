@@ -25,6 +25,7 @@
         "postcss": "^8.4.31",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-quill": "^2.0.0",
         "twin.macro": "^3.0.0-rc.4",
         "vite": "^7.0.4",
         "vite-plugin-svgr": "^4.5.0",

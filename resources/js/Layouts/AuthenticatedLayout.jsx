@@ -50,6 +50,14 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Berita
                                 </NavLink>
+                                <NavLink
+                                    href={route("dashboard.user.index")}
+                                    active={route().current(
+                                        "dashboard.user.index"
+                                    )}
+                                >
+                                    Pengguna
+                                </NavLink>
                             </div>
                         </div>
 
@@ -168,6 +176,12 @@ export default function AuthenticatedLayout({ header, children }) {
                             active={route().current("dashboard.news.index")}
                         >
                             Berita
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("dashboard.user.index")}
+                            active={route().current("dashboard.user.index")}
+                        >
+                            Pengguna
                         </ResponsiveNavLink>
                     </div>
 

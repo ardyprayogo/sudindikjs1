@@ -1,0 +1,25 @@
+import:
+  - recipe/laravel.php
+
+config:
+  repository: "git@github.com:ardyprayogo/sudindikjs1.git"
+  keep_releases: 2
+hosts:
+  103.245.38.187:
+    staging:
+    hostname: 103.245.38.187
+    remote_user: deploy
+    deploy_path: "~/modules/sudindikjs1"
+    branch: development
+    ssh_multiplexing: false
+    labels:
+      stage: staging
+
+tasks:
+  npm:install:build:
+    - cd: "{{release_path}}"
+    - run: "npm install && npm run build"
+
+after:
+  deploy:failed: deploy:unlock
+  deploy:vendors: npm:install:build

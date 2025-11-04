@@ -1,5 +1,5 @@
 import PrimaryButton from "@/Components/PrimaryButton";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 import WarningButton from "@/Components/WarningButton";
 import DangerButton from "@/Components/DangerButton";
 import TextInput from "@/Components/TextInput";
@@ -15,8 +15,7 @@ export default function DashboardIndex({ news, query }) {
         search: query.search || "",
     });
     return (
-        <AuthenticatedLayout>
-            <Head title="Berita" />
+        <AuthenticatedLayout header={"Berita"}>
             <div className="overflow-x-auto flex flex-col gap-2">
                 <div className="flex flex-row justify-end">
                     <Link

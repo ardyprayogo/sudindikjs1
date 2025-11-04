@@ -15,8 +15,7 @@ export default function DashboardIndex({ categories, query }) {
         search: query.search || "",
     });
     return (
-        <AuthenticatedLayout>
-            <Head title="Kategori Berita" />
+        <AuthenticatedLayout header={"Kategori Berita"}>
             <div className="overflow-x-auto flex flex-col gap-2">
                 <div className="flex flex-row justify-end">
                     <Link

@@ -4,7 +4,7 @@ import ErrorAlert from "@/Components/ErrorAlert";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import SuccessAlert from "@/Components/SuccessAlert";
-import { Link, usePage } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
 export default function AuthenticatedLayout({ header, children }) {
@@ -200,8 +200,11 @@ export default function AuthenticatedLayout({ header, children }) {
             {header && (
                 <header className="bg-white shadow">
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                        {header}
+                        <h2 className="text-xl font-semibold leading-tight text-gray-800">
+                            {header}
+                        </h2>
                     </div>
+                    <Head title={header} />
                 </header>
             )}
 

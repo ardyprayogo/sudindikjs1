@@ -1,0 +1,327 @@
+/* HomeSlide.css */
+.home-slide-container {
+  display: flex;
+  align-items: center;
+  padding: 80px 5%; /* Contoh padding, sesuaikan jika perlu */
+  min-height: 80vh; /* Sesuaikan tinggi sesuai kebutuhan */
+  position: relative;
+  overflow: hidden; /* Penting untuk bentuk latar belakang */
+  color: #fff; /* Warna teks default, sesuaikan */
+  z-index: 1;
+  isolation: isolate; /* Memastikan stacking context bekerja dengan baik */
+
+  /* Gradasi Biru yang Lebih Menarik */
+  background: linear-gradient(
+    45deg,
+    #0a1930, /* Biru sangat gelap */
+    #1a3a60, /* Biru gelap */
+    #2a5a90, /* Biru sedang */
+    #3a7ac0, /* Biru cerah */
+    #4a9bff  /* Biru sangat cerah, mendekati langit */
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite; /* Transisi gradasi */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Bentuk Latar Belakang Artistik (bukan border kotak) */
+.home-slide-container::before {
+  content: '';
+  position: absolute;
+  top: -10%; /* Sesuaikan posisi */
+  left: -10%; /* Sesuaikan posisi */
+  width: 120%; /* Lebar relatif */
+  height: 120%; /* Tinggi relatif */
+  background: radial-gradient(
+    circle at 20% 80%,
+    rgba(74, 155, 255, 0.2) 0%, /* Biru cerah transparan */
+    rgba(42, 90, 144, 0.2) 50%, /* Biru sedang transparan */
+    transparent 100%
+  );
+  transform: rotate(-15deg); /* Rotasi untuk efek miring */
+  z-index: -1; /* Pastikan di belakang konten */
+  opacity: 0.7; /* Sedikit transparan */
+  filter: blur(50px); /* Efek blur untuk kelembutan */
+}
+
+/*--------------------------------------------------------------
+# Bagian Kiri (Teks dan Tombol)
+--------------------------------------------------------------*/
+.home-slide-left {
+  flex: 1;
+  padding-right: 40px; /* Jarak antara kiri dan kanan */
+  z-index: 2; /* Pastikan di atas elemen latar belakang */
+}
+
+.home-slide-left .main-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  color: #ffffff; /* Putih terang untuk kontras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sedikit bayangan teks */
+}
+
+.home-slide-left .sub-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+  color: #e0e0e0; /* Abu-abu terang */
+}
+
+.home-slide-left .description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #c9c9c9; /* Abu-abu sedang */
+}
+
+.home-slide-left .button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cta-button {
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button.primary {
+  background-color: #4a9bff; /* Biru cerah */
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(74, 155, 255, 0.4);
+}
+
+.cta-button.primary:hover {
+  background-color: #2a7cdb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 155, 255, 0.6);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #4a9bff;
+  border: 2px solid #4a9bff;
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(74, 155, 255, 0.1);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/*--------------------------------------------------------------
+# Section Card Statistik (Glassmorphism)
+--------------------------------------------------------------*/
+.stats-cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Agar kartu bisa pindah baris jika layar kecil */
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 25px;
+  border-radius: 15px;
+  min-width: 180px; /* Lebar minimum kartu */
+  flex: 1; /* Agar kartu memanjang sesuai ruang */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Bayangan */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Batas tipis */
+  backdrop-filter: blur(10px); /* Efek blur inti glassmorphism */
+  -webkit-backdrop-filter: blur(10px); /* Dukungan browser lama */
+  background: rgba(255, 255, 255, 0.05); /* Latar belakang transparan */
+  color: #ffffff;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Efek hover menarik */
+}
+
+.stat-card .statistic-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4a9bff; /* Warna biru cerah untuk angka */
+  margin-bottom: 5px;
+}
+
+.stat-card .statistic-label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #e0e0e0;
+}
+
+
+/*--------------------------------------------------------------
+# Bagian Kanan (Slideshow)
+--------------------------------------------------------------*/
+.home-slide-right {
+  flex: 1;
+  max-width: 50%; /* Sesuaikan lebar slideshow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Pastikan di atas elemen latar belakang */
+}
+
+.home-slide-right .slick-slider {
+  width: 100%;
+}
+
+.home-slide-right .slider-item {
+  position: relative;
+  display: flex !important; /* Gunakan flex untuk penempatan gambar */
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Sudut membulat untuk slide */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.home-slide-right .slider-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover; /* Pastikan gambar mengisi area tanpa terdistorsi */
+  border-radius: 15px; /* Agar sesuai dengan container */
+}
+
+/* Styling untuk Dots navigasi react-slick */
+.home-slide-right .slick-dots {
+  bottom: -40px; /* Pindahkan dots ke bawah slider */
+}
+
+.home-slide-right .slick-dots li button:before {
+  font-size: 12px;
+  color: #ffffff; /* Warna dots putih */
+  opacity: 0.5;
+}
+
+.home-slide-right .slick-dots li.slick-active button:before {
+  color: #4a9bff; /* Warna dots aktif biru cerah */
+  opacity: 1;
+}
+
+/* Styling untuk Arrows navigasi react-slick (diaktifkan lagi) */
+.home-slide-right .slick-prev,
+.home-slide-right .slick-next {
+  color: #ffffff; /* Warna panah putih */
+  font-size: 2.5rem; /* Ukuran panah sedikit lebih besar */
+  z-index: 10; /* Pastikan di atas gambar */
+  width: 50px; /* Sesuaikan lebar area klik */
+  height: 50px; /* Sesuaikan tinggi area klik */
+  line-height: 50px; /* Pusatkan ikon */
+  border-radius: 50%; /* Bentuk lingkaran */
+  background-color: rgba(0, 0, 0, 0.3); /* Latar belakang transparan gelap */
+  transition: background-color 0.3s ease;
+}
+
+.home-slide-right .slick-prev:hover,
+.home-slide-right .slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Lebih gelap saat hover */
+}
+
+.home-slide-right .slick-prev {
+  left: -60px; /* Pindahkan panah ke kiri */
+}
+
+.home-slide-right .slick-next {
+  right: -60px; /* Pindahkan panah ke kanan */
+}
+
+/* Mengganti ikon default jika perlu */
+.home-slide-right .slick-prev:before,
+.home-slide-right .slick-next:before {
+  font-family: 'slick'; /* Font bawaan slick */
+  font-size: 2.5rem; /* Sesuaikan ukuran ikon */
+  line-height: 1;
+  opacity: 1; /* Pastikan ikon terlihat */
+  color: #ffffff; /* Warna ikon putih */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Placeholder untuk responsivitas (contoh sederhana) */
+@media (max-width: 992px) {
+  .home-slide-container {
+    flex-direction: column; /* Tumpuk bagian kiri dan kanan */
+    padding: 60px 5%;
+    min-height: auto;
+  }
+
+  .home-slide-left {
+    padding-right: 0;
+    margin-bottom: 40px; /* Jarak antara kiri dan kanan */
+    text-align: center;
+  }
+
+  .home-slide-left .main-title {
+    font-size: 2.5rem;
+  }
+
+  .home-slide-left .sub-title {
+    font-size: 1.5rem;
+  }
+
+  .home-slide-right {
+    max-width: 100%;
+  }
+
+  .home-slide-left .button-group {
+    justify-content: center;
+  }
+
+  .stats-cards-container {
+    justify-content: center; /* Pusatkan kartu statistik */
+  }
+
+  .home-slide-right .slick-prev {
+    left: 0; /* Pindahkan panah ke tepi */
+  }
+
+  .home-slide-right .slick-next {
+    right: 0; /* Pindahkan panah ke tepi */
+  }
+}
+
+@media (max-width: 576px) {
+  .home-slide-left .main-title {
+    font-size: 2rem;
+  }
+
+  .home-slide-left .sub-title {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .stat-card {
+    min-width: unset; /* Biarkan flex menentukan lebar */
+    flex: 1 1 100%; /* Setiap kartu di baris baru */
+  }
+}

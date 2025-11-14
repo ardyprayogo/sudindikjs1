@@ -69,11 +69,9 @@ export default ({
 
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#layanan">Layanan</NavLink>
-
-      <NavLink href="#galeri">Galeri</NavLink>
-      <NavLink href="#kontak">Kontak</NavLink>
-
+      <NavLink href="#layanan">Beranda</NavLink>
+      <NavLink href="#galeri">Profil</NavLink>
+      <NavLink href="#kontak">Statistik</NavLink>
       {/* Dropdown Pengaduan */}
       <div style={{ position: "relative", display: "inline-block" }}>
         <NavLink

@@ -1,0 +1,98 @@
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between; /* Untuk meletakkan logo di kiri dan menu di kanan */
+  align-items: center;
+  padding: 20px 30px; /* Padding yang lebih lega */
+  background-color: #ffffff; /* Latar belakang bersih */
+  border-bottom: 1px solid #eee; /* Garis bawah tipis untuk pemisah, bukan shadow */
+}
+
+.header-logo h1 {
+  font-size: 1.8em; /* Ukuran font logo yang lebih besar */
+  color: #333;
+  margin: 0;
+  font-weight: 600; /* Sedikit tebal */
+}
+
+.header-nav-desktop {
+  display: flex;
+  gap: 30px; /* Jarak antar menu yang lebih lega */
+}
+
+.header-nav-desktop a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1.1em; /* Ukuran font menu yang nyaman dibaca */
+  transition: color 0.3s ease;
+}
+
+.header-nav-desktop a:hover {
+  color: #007bff; /* Warna hover yang umum dan bersih */
+}
+
+.header-mobile-toggle {
+  display: none; /* Sembunyikan tombol hamburger secara default di desktop */
+}
+
+.hamburger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+}
+
+.hamburger-icon {
+  width: 30px; /* Ukuran ikon hamburger */
+  height: 30px;
+}
+
+.header-nav-mobile {
+  display: none; /* Sembunyikan menu mobile secara default */
+}
+
+/* Media Queries untuk Responsif */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px; /* Padding sedikit lebih kecil di mobile */
+  }
+
+  .header-nav-desktop {
+    display: none; /* Sembunyikan menu desktop di mobile */
+  }
+
+  .header-mobile-toggle {
+    display: block; /* Tampilkan tombol hamburger di mobile */
+  }
+
+  .header-nav-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Agar overlay menutupi seluruh layar */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Jarak antar menu mobile */
+    z-index: 1000; /* Pastikan menu di atas elemen lain */
+  }
+
+  .header-nav-mobile a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5em; /* Ukuran font menu mobile yang besar dan jelas */
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .header-nav-mobile a:hover {
+    color: #007bff;
+  }
+}

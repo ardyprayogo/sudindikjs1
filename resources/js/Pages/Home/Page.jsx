@@ -14,6 +14,7 @@ import Visimisi from "@/Components/hero/TwoColumnWithFeaturesAndTestimonial"
 // feature image
 import TabCardGrid from "@/Components/cards/TabCardGrid";
 import GlobalStyles from "./GlobalStyles";
+import ImageSlider from "@/Components/ImageSlider";
 
 export default () => {
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
@@ -40,7 +41,6 @@ export default () => {
     <GlobalStyles />
     <AnimationRevealPage>
       <Hero />
-      <Visimisi />
       <Features
         heading={<>Layanan <HighlightedText>Utama</HighlightedText></>}
         subheading=""
@@ -123,6 +123,8 @@ export default () => {
         imageContainerCss={tw`p-2!`}
         imageCss={tw`w-20! h-20!`}
       />
+      <Visimisi />
+      <ImageSlider />  
       <TrendingCard />
       <Blog />
       <TabCardGrid

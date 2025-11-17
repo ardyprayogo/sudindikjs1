@@ -59,6 +59,14 @@ export default function AuthenticatedLayout({ header, children }) {
                                     Galeri
                                 </NavLink>
                                 <NavLink
+                                    href={route("dashboard.service.index")}
+                                    active={route().current(
+                                        "dashboard.service.index"
+                                    )}
+                                >
+                                    Layanan Utama
+                                </NavLink>
+                                <NavLink
                                     href={route("dashboard.user.index")}
                                     active={route().current(
                                         "dashboard.user.index"
@@ -190,6 +198,12 @@ export default function AuthenticatedLayout({ header, children }) {
                             active={route().current("dashboard.gallery.index")}
                         >
                             Galeri
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("dashboard.service.index")}
+                            active={route().current("dashboard.service.index")}
+                        >
+                            Layanan Utama
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("dashboard.user.index")}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\MainServiceController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
@@ -53,6 +54,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
         Route::delete('/delete/{gallery}', [GalleryController::class, 'delete'])->name('dashboard.gallery.delete');
         Route::get('/update/{gallery}', [GalleryController::class, 'update'])->name('dashboard.gallery.update');
         Route::post('/store', [GalleryController::class, 'store'])->name('dashboard.gallery.store');
+    });
+
+    Route::prefix('layanan-utama')->group(function () {
+        Route::get('/', [MainServiceController::class, 'index'])->name('dashboard.service.index');
+        Route::get('/create', [MainServiceController::class, 'create'])->name('dashboard.service.create');
+        Route::delete('/delete/{service}', [MainServiceController::class, 'delete'])->name('dashboard.service.delete');
+        Route::get('/update/{service}', [MainServiceController::class, 'update'])->name('dashboard.service.update');
+        Route::post('/store', [MainServiceController::class, 'store'])->name('dashboard.service.store');
     });
 });
 

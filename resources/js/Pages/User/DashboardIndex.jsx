@@ -5,6 +5,7 @@ import DangerButton from "@/Components/DangerButton";
 import TextInput from "@/Components/TextInput";
 import Pagination from "@/Components/Pagination";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Edit, Trash2Icon } from "lucide-react";
 
 export default function DashboardIndex({ users, query }) {
     const { delete: destroy } = useForm();
@@ -52,53 +53,63 @@ export default function DashboardIndex({ users, query }) {
                         </PrimaryButton>
                     </div>
                 </div>
-                <table className="border border-gray-200 divide-y divide-gray-200">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.data.map((userItem, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>{userItem.name}</td>
-                                    <td>{userItem.email}</td>
-                                    <td>
-                                        <div className="flex gap-2">
-                                            <Link
-                                                href={route(
-                                                    "dashboard.user.update",
-                                                    userItem.id
-                                                )}
-                                            >
-                                                <WarningButton className="btn-xs">
-                                                    Edit
-                                                </WarningButton>
-                                            </Link>
-                                            <DangerButton
-                                                className="btn-xs"
-                                                onClick={(e) => {
-                                                    {
-                                                        deleteUser(
-                                                            e,
-                                                            userItem.id
-                                                        );
-                                                    }
-                                                }}
-                                            >
-                                                Hapus
-                                            </DangerButton>
-                                        </div>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                {/* Table Wrapper */}
+                <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                        <thead>
+                            <tr className="bg-gray-200 text-left">
+                                <th className="p-3 font-semibold">Nama</th>
+                                <th className="p-3 font-semibold">Email</th>
+                                <th className="p-3 font-semibold">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {users.data.map((userItem, i) => {
+                                return (
+                                    <tr
+                                        key={i}
+                                        className="hover:bg-gray-100 border-b"
+                                    >
+                                        <td className="p-3">{userItem.name}</td>
+                                        <td className="p-3">
+                                            {userItem.email}
+                                        </td>
+                                        <td className="p-3">
+                                            <div className="flex gap-2">
+                                                <Link
+                                                    href={route(
+                                                        "dashboard.user.update",
+                                                        userItem.id
+                                                    )}
+                                                >
+                                                    <WarningButton className="btn-xs flex gap-2">
+                                                        <Edit size={18} />
+                                                        <span>Edit</span>
+                                                    </WarningButton>
+                                                </Link>
+                                                <DangerButton
+                                                    className="btn-xs flex gap-2"
+                                                    onClick={(e) => {
+                                                        {
+                                                            deleteUser(
+                                                                e,
+                                                                userItem.id
+                                                            );
+                                                        }
+                                                    }}
+                                                >
+                                                    <Trash2Icon size={18} />
+                                                    <span>Hapus</span>
+                                                </DangerButton>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+
                 <Pagination links={users.links} />
             </div>
         </AuthenticatedLayout>

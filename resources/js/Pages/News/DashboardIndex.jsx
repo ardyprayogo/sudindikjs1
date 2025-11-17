@@ -5,6 +5,7 @@ import DangerButton from "@/Components/DangerButton";
 import TextInput from "@/Components/TextInput";
 import Pagination from "@/Components/Pagination";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Edit, Trash2Icon } from "lucide-react";
 
 export default function DashboardIndex({ news, query }) {
     const { delete: destroy } = useForm();
@@ -50,74 +51,94 @@ export default function DashboardIndex({ news, query }) {
                         </PrimaryButton>
                     </div>
                 </div>
-                <table className="border border-gray-200 divide-y divide-gray-200">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Judul</th>
-                            <th>Link Gambar</th>
-                            <th>Penulis</th>
-                            <th>Berita Pilihan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {news.data.map((newsItem, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>{newsItem.judul}</td>
-                                    <td>{newsItem.gambar}</td>
-                                    <td>{newsItem.penulis}</td>
-                                    <td>
-                                        {newsItem.headline ? (
-                                            <div className="p-1 w-fit bg-green-500 text-xs font-bold rounded-md mx-auto text-white">
-                                                YA
-                                            </div>
-                                        ) : (
-                                            <div className="p-1 w-fit bg-red-500 text-xs font-bold rounded-md mx-auto text-white">
-                                                TIDAK
-                                            </div>
-                                        )}
-                                    </td>
-                                    <td>
-                                        <div className="flex gap-2">
-                                            {/* <Link
+                {/* Table Wrapper */}
+                <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                        <thead>
+                            <tr className="bg-gray-200 text-left">
+                                <th className="p-3 font-semibold">Judul</th>
+                                <th className="p-3 font-semibold">
+                                    Link Gambar
+                                </th>
+                                <th className="p-3 font-semibold">Penulis</th>
+                                <th className="p-3 font-semibold">
+                                    Berita Pilihan
+                                </th>
+                                <th className="p-3 font-semibold">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {news.data.map((newsItem, i) => {
+                                return (
+                                    <tr
+                                        key={i}
+                                        className="hover:bg-gray-100 border-b"
+                                    >
+                                        <td className="p-3">
+                                            {newsItem.judul}
+                                        </td>
+                                        <td className="p-3">
+                                            {newsItem.gambar}
+                                        </td>
+                                        <td className="p-3">
+                                            {newsItem.penulis}
+                                        </td>
+                                        <td className="p-3">
+                                            {newsItem.headline ? (
+                                                <div className="p-1 w-fit bg-green-500 text-xs font-bold rounded-md mx-auto text-white">
+                                                    YA
+                                                </div>
+                                            ) : (
+                                                <div className="p-1 w-fit bg-red-500 text-xs font-bold rounded-md mx-auto text-white">
+                                                    TIDAK
+                                                </div>
+                                            )}
+                                        </td>
+                                        <td className="p-3">
+                                            <div className="flex gap-2">
+                                                {/* <Link
                                                 href={route(
                                                     "dashboard.news.headline",
                                                     newsItem.id
                                                 )}
                                             > */}
-                                            {/* <WarningButton className="btn-xs">
+                                                {/* <WarningButton className="btn-xs">
                                                 Berita Pilihan
                                             </WarningButton> */}
-                                            {/* </Link> */}
-                                            <Link
-                                                href={route(
-                                                    "dashboard.news.update",
-                                                    newsItem.id
-                                                )}
-                                            >
-                                                <WarningButton className="btn-xs">
-                                                    Edit
-                                                </WarningButton>
-                                            </Link>
-                                            <DangerButton
-                                                className="btn-xs"
-                                                onClick={(e) => {
-                                                    {
-                                                        e.preventDefault();
-                                                        deleteNews(newsItem.id);
-                                                    }
-                                                }}
-                                            >
-                                                Hapus
-                                            </DangerButton>
-                                        </div>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                                                {/* </Link> */}
+                                                <Link
+                                                    href={route(
+                                                        "dashboard.news.update",
+                                                        newsItem.id
+                                                    )}
+                                                >
+                                                    <WarningButton className="btn-xs flex gap-2">
+                                                        <Edit size={18} />
+                                                        <span>Edit</span>
+                                                    </WarningButton>
+                                                </Link>
+                                                <DangerButton
+                                                    className="btn-xs flex gap-2"
+                                                    onClick={(e) => {
+                                                        {
+                                                            e.preventDefault();
+                                                            deleteNews(
+                                                                newsItem.id
+                                                            );
+                                                        }
+                                                    }}
+                                                >
+                                                    <Trash2Icon size={18} />
+                                                    <span>Hapus</span>
+                                                </DangerButton>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
                 <Pagination links={news.links} />
             </div>
         </AuthenticatedLayout>

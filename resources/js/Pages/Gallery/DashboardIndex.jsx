@@ -5,6 +5,7 @@ import DangerButton from "@/Components/DangerButton";
 import TextInput from "@/Components/TextInput";
 import Pagination from "@/Components/Pagination";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Edit, Trash2Icon } from "lucide-react";
 
 export default function DashboardIndex({ galleries, query }) {
     const { delete: destroy } = useForm();
@@ -50,55 +51,68 @@ export default function DashboardIndex({ galleries, query }) {
                         </PrimaryButton>
                     </div>
                 </div>
-                <table className="border border-gray-200 divide-y divide-gray-200">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Judul</th>
-                            <th>Gambar</th>
-                            <th>Deskripsi</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {galleries.data.map((category, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>{category.judul}</td>
-                                    <td>{category.gambar}</td>
-                                    <td>{category.deskripsi}</td>
-                                    <td>
-                                        <div className="flex gap-2">
-                                            <Link
-                                                href={route(
-                                                    "dashboard.gallery.update",
-                                                    category.id
-                                                )}
-                                            >
-                                                <WarningButton className="btn-xs">
-                                                    Edit
-                                                </WarningButton>
-                                            </Link>
-                                            <DangerButton
-                                                className="btn-xs"
-                                                onClick={(e) => {
-                                                    {
-                                                        e.preventDefault();
-                                                        deleteGallery(
-                                                            category.id
-                                                        );
-                                                    }
-                                                }}
-                                            >
-                                                Hapus
-                                            </DangerButton>
-                                        </div>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                {/* Table Wrapper */}
+                <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                        <thead>
+                            <tr className="bg-gray-200 text-left">
+                                <th className="p-3 font-semibold">Judul</th>
+                                <th className="p-3 font-semibold">Gambar</th>
+                                <th className="p-3 font-semibold">Deskripsi</th>
+                                <th className="p-3 font-semibold">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {galleries.data.map((category, i) => {
+                                return (
+                                    <tr
+                                        key={i}
+                                        className="hover:bg-gray-100 border-b"
+                                    >
+                                        <td className="p-3">
+                                            {category.judul}
+                                        </td>
+                                        <td className="p-3">
+                                            {category.gambar}
+                                        </td>
+                                        <td className="p-3">
+                                            {category.deskripsi}
+                                        </td>
+                                        <td className="p-3">
+                                            <div className="flex gap-2">
+                                                <Link
+                                                    href={route(
+                                                        "dashboard.gallery.update",
+                                                        category.id
+                                                    )}
+                                                >
+                                                    <WarningButton className="btn-xs flex gap-2">
+                                                        <Edit size={18} />
+                                                        <span>Edit</span>
+                                                    </WarningButton>
+                                                </Link>
+                                                <DangerButton
+                                                    className="btn-xs flex gap-2"
+                                                    onClick={(e) => {
+                                                        {
+                                                            e.preventDefault();
+                                                            deleteGallery(
+                                                                category.id
+                                                            );
+                                                        }
+                                                    }}
+                                                >
+                                                    <Trash2Icon size={18} />
+                                                    <span>Hapus</span>
+                                                </DangerButton>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
                 <Pagination links={galleries.links} />
             </div>
         </AuthenticatedLayout>

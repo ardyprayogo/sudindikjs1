@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +45,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
         Route::delete('/delete/{user}', [UserController::class, 'delete'])->name('dashboard.user.delete');
         Route::get('/update/{user}', [UserController::class, 'update'])->name('dashboard.user.update');
         Route::post('/store', [UserController::class, 'store'])->name('dashboard.user.store');
+    });
+
+    Route::prefix('galeri')->group(function () {
+        Route::get('/', [GalleryController::class, 'index'])->name('dashboard.gallery.index');
+        Route::get('/create', [GalleryController::class, 'create'])->name('dashboard.gallery.create');
+        Route::delete('/delete/{gallery}', [GalleryController::class, 'delete'])->name('dashboard.gallery.delete');
+        Route::get('/update/{gallery}', [GalleryController::class, 'update'])->name('dashboard.gallery.update');
+        Route::post('/store', [GalleryController::class, 'store'])->name('dashboard.gallery.store');
     });
 });
 

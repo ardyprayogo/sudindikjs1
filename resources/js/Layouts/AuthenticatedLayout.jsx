@@ -51,6 +51,14 @@ export default function AuthenticatedLayout({ header, children }) {
                                     Berita
                                 </NavLink>
                                 <NavLink
+                                    href={route("dashboard.gallery.index")}
+                                    active={route().current(
+                                        "dashboard.gallery.index"
+                                    )}
+                                >
+                                    Galeri
+                                </NavLink>
+                                <NavLink
                                     href={route("dashboard.user.index")}
                                     active={route().current(
                                         "dashboard.user.index"
@@ -178,6 +186,12 @@ export default function AuthenticatedLayout({ header, children }) {
                             Berita
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
+                            href={route("dashboard.gallery.index")}
+                            active={route().current("dashboard.gallery.index")}
+                        >
+                            Galeri
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
                             href={route("dashboard.user.index")}
                             active={route().current("dashboard.user.index")}
                         >
@@ -229,7 +243,7 @@ export default function AuthenticatedLayout({ header, children }) {
                             <div className="p-6 text-gray-900">
                                 {success && (
                                     <SuccessAlert
-                                        message={"success"}
+                                        message={success}
                                         className={"mb-5"}
                                     />
                                 )}

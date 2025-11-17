@@ -55,6 +55,7 @@ export default function DashboardIndex({ news, query }) {
                     <thead>
                         <tr>
                             <th>Judul</th>
+                            <th>Link Gambar</th>
                             <th>Penulis</th>
                             <th>Berita Pilihan</th>
                         </tr>
@@ -64,6 +65,7 @@ export default function DashboardIndex({ news, query }) {
                             return (
                                 <tr key={i}>
                                     <td>{newsItem.judul}</td>
+                                    <td>{newsItem.gambar}</td>
                                     <td>{newsItem.penulis}</td>
                                     <td>
                                         {newsItem.headline ? (

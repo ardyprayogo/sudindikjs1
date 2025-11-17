@@ -20,13 +20,14 @@ export default function DashboardForm({ categories, news }) {
                   kategori_id: news.kategori_id,
                   konten: news.konten,
                   desk_singkat: news.desk_singkat,
+                  gambar: news.gambar,
               }
             : {
                   judul: "",
                   kategori_id: "",
                   konten: "",
                   desk_singkat: "",
-                  gambar: null,
+                  gambar: "",
               }
     );
 
@@ -103,7 +104,7 @@ export default function DashboardForm({ categories, news }) {
                 </SelectInput>
                 <InputError message={errors.kategori_id} />
             </div>
-            {!news && (
+            {/* {!news && (
                 <div className="flex flex-col gap-2">
                     <InputLabel htmlFor="gambar" value="Cover" />
                     <FileInput
@@ -117,7 +118,7 @@ export default function DashboardForm({ categories, news }) {
                     />
                     <InputError message={errors.gambar} />
                 </div>
-            )}
+            )} */}
             <div className="flex flex-col gap-2">
                 <InputLabel htmlFor="news_label" value="Judul Berita" />
                 <TextInput
@@ -127,6 +128,19 @@ export default function DashboardForm({ categories, news }) {
                     value={data.judul}
                     className="mt-1 block lg:w-3/4 w-full"
                     onChange={(e) => setData("judul", e.target.value)}
+                />
+                <InputError message={errors.judul} />
+            </div>
+
+            <div className="flex flex-col gap-2">
+                <InputLabel htmlFor="gambar" value="Link Gambar" />
+                <TextInput
+                    id="gambar"
+                    type="text"
+                    name="gambar"
+                    value={data.gambar}
+                    className="mt-1 block lg:w-3/4 w-full"
+                    onChange={(e) => setData("gambar", e.target.value)}
                 />
                 <InputError message={errors.judul} />
             </div>

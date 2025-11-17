@@ -64,6 +64,7 @@ class NewsController extends Controller
             'judul' => 'required|string|max:150',
             'kategori_id' => 'required',
             'konten' => 'required|string',
+            'gambar' => 'required|string',
             'desk_singkat' => 'required|string|max:250',
         ]);
 
@@ -73,24 +74,26 @@ class NewsController extends Controller
                 'judul' => $request->judul,
                 'kategori_id' => $request->kategori_id,
                 'konten' => $request->konten,
+                'gambar' => $request->gambar,
                 'penulis' => Auth::user()->name,
                 'desk_singkat' => $request->desk_singkat,
             ]);
             $message = "$request->judul berhasil diperbarui";
         } else {
-            $request->validate([
-                'gambar' => 'required|max:1024',
-            ]);
-            $path = config('app.path_gambar_berita');
-            $coverFileName = uniqid('cover-').'.'.$request->gambar->extension();
-            $request->gambar->move(public_path($path), $coverFileName);
+            // $request->validate([
+            //     'gambar' => 'required|max:1024',
+            // ]);
+            // $path = config('app.path_gambar_berita');
+            // $coverFileName = uniqid('cover-').'.'.$request->gambar->extension();
+            // $request->gambar->move(public_path($path), $coverFileName);
             News::create([
                 'judul' => $request->judul,
                 'kategori_id' => $request->kategori_id,
                 'konten' => $request->konten,
+                'gambar' => $request->gambar,
                 'penulis' => Auth::user()->name,
                 'desk_singkat' => $request->desk_singkat,
-                'gambar' => $path.'/'.$coverFileName,
+                // 'gambar' => $path.'/'.$coverFileName,
             ]);
             $message = "$request->title berhasil ditambahkan";
         }

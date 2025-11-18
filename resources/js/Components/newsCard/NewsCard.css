@@ -1,0 +1,42 @@
+.card-container {
+  display: flex; /* Untuk menempatkan sisi kiri dan kanan secara berdampingan */
+  border: 1px solid rgba(0, 0, 0, 0.5); /* Border dengan transparansi 50% */
+  border-radius: 10px; /* Border radius 10px */
+  padding: 20px; /* Padding agar terlihat lega */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opsional: sedikit shadow untuk efek kedalaman */
+  background-color: white; /* Opsional: latar belakang putih */
+  max-width: 600px; /* Opsional: lebar maksimum card */
+  margin: 20px auto; /* Opsional: posisi di tengah halaman */
+}
+
+.card-left {
+  flex: 0 0 150px; /* Lebar tetap untuk sisi kiri (gambar), sesuaikan jika perlu */
+  margin-right: 20px; /* Jarak antara gambar dan teks */
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Sudut sedikit membulat untuk gambar */
+  object-fit: cover; /* Pastikan gambar mengisi area tanpa terdistorsi */
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column; /* Mengatur judul dan deskripsi dalam kolom */
+  justify-content: center; /* Pusatkan secara vertikal jika sisi kiri lebih tinggi */
+  flex-grow: 1; /* Biarkan sisi kanan mengambil sisa ruang */
+}
+
+.card-title {
+  margin: 0 0 10px 0; /* Margin bawah untuk judul */
+  font-size: 1.5em; /* Ukuran font judul */
+  color: #333; /* Warna teks judul */
+}
+
+.card-description {
+  margin: 0;
+  font-size: 1em; /* Ukuran font deskripsi */
+  color: #666; /* Warna teks deskripsi */
+  line-height: 1.5; /* Spasi baris untuk keterbacaan */
+}

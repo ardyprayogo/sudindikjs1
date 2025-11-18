@@ -1,0 +1,29 @@
+.card-container {
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sedikit bayangan untuk kedalaman */
+  transition:
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out,
+    background 0.3s ease-out;
+  cursor: pointer; /* Menunjukkan bahwa elemen bisa diinteraksi */
+  position: relative; /* Untuk gradasi hover yang lebih kompleks jika diperlukan */
+  overflow: hidden; /* Penting untuk efek visual */
+
+  /* Default background values for hover transition if not gradient */
+  background-color: var(--card-bg-start);
+}
+
+.card-container:hover {
+  transform: translateY(-5px) scale(1.02); /* Sedikit zoom dan naik */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih dalam saat hover */
+}
+
+/* Transisi gradasi warna saat hover */
+.card-container:hover {
+  background: linear-gradient(
+    to bottom right,
+    var(--card-bg-end),
+    var(--card-bg-start)
+  ); /* Membalik gradasi atau warna solid */
+}

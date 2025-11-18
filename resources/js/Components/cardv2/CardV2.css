@@ -1,0 +1,65 @@
+.card-container {
+  position: relative;
+  background-color: transparent; /* Latar belakang transparan */
+  border-radius: 10px;
+  overflow: hidden; /* Penting untuk menjaga gradasi di dalam batas kartu */
+  color: white; /* Warna teks di dalam kartu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: solid 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease; /* Transisi halus untuk semua properti */
+}
+
+/* Pseudo-element untuk overlay gradasi */
+.card-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--start-color), var(--end-color));
+  opacity: 0; /* Awalnya gradasi transparan */
+  transition: opacity 0.3s ease; /* Transisi halus untuk opasitas gradasi */
+  z-index: 1; /* Pastikan gradasi berada di bawah konten */
+}
+
+/* Efek saat di-hover */
+.card-container:hover::before {
+  opacity: 1; /* Tampilkan gradasi saat di-hover */
+}
+
+/* Konten di dalam kartu */
+.card-content {
+  position: relative;
+  z-index: 2; /* Pastikan konten berada di atas gradasi */
+  padding: 10px;
+  text-align: left;
+}
+
+/* Gaya opsional untuk melihat efek pada halaman */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #333; /* Latar belakang gelap untuk menonjolkan transparansi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #eee;
+}
+
+.card-v2-title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.card-v2-icon {
+  font-size: 35px;
+}
+
+.card-v2-sub-title {
+  font-size: 17px;
+}

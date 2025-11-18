@@ -1,0 +1,53 @@
+.section-container {
+  padding: 80px 20px; /* Padding atas bawah untuk memberi ruang */
+  overflow: hidden; /* Penting untuk gradasi pada teks */
+}
+
+.section-content {
+  max-width: 1200px; /* Lebar maksimal konten untuk keterbacaan */
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5em; /* Ukuran judul utama */
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  /* Styling gradasi pada teks akan diterapkan inline melalui React */
+}
+
+.section-subtitle {
+  font-size: 1.2em;
+  color: #555; /* Warna agak abu-abu untuk subtitle */
+  margin-bottom: 40px; /* Jarak antara subtitle dan wrapper item */
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-items-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Penting agar item-item card bisa wrap */
+  justify-content: center; /* Pusatkan item card */
+  gap: 20px; /* Jarak antar item card */
+  padding-top: 20px; /* Sedikit padding di atas children */
+}
+
+/* Responsif dasar untuk mobile */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 60px 15px;
+  }
+
+  .section-title {
+    font-size: 1.5em;
+  }
+
+  .section-subtitle {
+    font-size: 0.8em;
+  }
+}

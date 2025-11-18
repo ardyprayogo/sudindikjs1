@@ -1,0 +1,18 @@
+.emoji-box {
+  width: 60px; /* Ukuran kotak emoji */
+  height: 60px;
+  border-radius: 12px; /* Border radius untuk kotak emoji */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em; /* Ukuran emoji */
+  margin-bottom: 15px; /* Jarak antara emoji dan judul */
+  /* Efek border opsional jika dibutuhkan, bisa diatur secara langsung di sini atau lewat props */
+}
+
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333; /* Warna default judul */
+}

@@ -1,0 +1,107 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px; /* Padding yang lebih lega */
+  background-color: transparent;
+  color: #fff; /* Font putih saat di atas */
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.header.scrolled {
+  background-color: #fff; /* Background putih saat discroll */
+  color: #333; /* Font hitam saat discroll */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sedikit bayangan saat discroll */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Lebar maksimal konten header */
+  margin: 0 auto;
+}
+
+.logo a {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: inherit; /* Menggunakan warna dari parent (header) */
+  text-decoration: none;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Untuk menu desktop */
+}
+
+.nav-menu li {
+  margin-left: 30px; /* Jarak antar menu */
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: inherit; /* Menggunakan warna dari parent (header) */
+  font-size: 1.1em;
+  transition: color 0.3s ease-in-out;
+  padding: 5px 0; /* Memberikan sedikit padding vertikal */
+}
+
+.nav-menu a:hover {
+  color: #007bff; /* Warna hover, bisa disesuaikan */
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .nav-menu {
+    display: none; /* Sembunyikan menu di mobile secara default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Sesuaikan dengan tinggi header */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Background menu mobile */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-out forwards; /* Animasi dropdown */
+  }
+
+  .nav-menu.open {
+    display: flex; /* Tampilkan menu saat dibuka */
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .nav-menu a {
+    color: #333; /* Warna font hitam untuk menu mobile */
+    font-size: 1.2em;
+  }
+
+  /* Animasi slide down untuk menu mobile */
+  @keyframes slideDown {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: auto;
+      opacity: 1;
+    }
+  }
+}

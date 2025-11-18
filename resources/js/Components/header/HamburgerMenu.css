@@ -1,0 +1,33 @@
+.hamburger-menu {
+  display: none; /* Sembunyikan di desktop */
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001; /* Pastikan di atas menu */
+}
+
+.hamburger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: inherit; /* Mengikuti warna parent (header) */
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Animasi untuk ikon X saat menu terbuka */
+.hamburger-menu.open .bar1 {
+  transform: translateY(8px) rotate(-45deg);
+}
+
+.hamburger-menu.open .bar2 {
+  opacity: 0;
+}
+
+.hamburger-menu.open .bar3 {
+  transform: translateY(-8px) rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Tampilkan di mobile */
+  }
+}

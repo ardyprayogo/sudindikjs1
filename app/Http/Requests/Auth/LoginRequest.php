@@ -36,7 +36,7 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'captcha.captcha' => 'Invalid captcha code.',
+            'captcha.captcha' => 'Kode captcha tidak valid.',
         ];
     }
 

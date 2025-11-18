@@ -13,7 +13,7 @@ export default function Pagination({ links, className }) {
                             className={`btn-sm w-10 h-10 flex items-center justify-center rounded-full
                                 ${
                                     link.active &&
-                                    "  bg-blue-500 text-white shadow hover:bg-blue-700 transition"
+                                    "  bg-gray-800 text-white shadow hover:bg-gray-700 transition"
                                 }
                                 ${link.url === null && "bg-white"}
                             `}

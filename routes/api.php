@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DapoController;
 use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\MainServiceController;
 use App\Http\Controllers\Api\NewsController;
@@ -32,4 +33,8 @@ Route::prefix('peserta-didik')->group(function () {
     Route::get('/jenjang', [StudentController::class, 'getJenjang']);
     Route::get('/kecamatan', [StudentController::class, 'getKecamatan']);
     Route::get('/total', [StudentController::class, 'getTotal']);
+});
+
+Route::prefix('rekap')->group(function () {
+    Route::get('/kecamatan', [DapoController::class, 'getKecamatan']);
 });

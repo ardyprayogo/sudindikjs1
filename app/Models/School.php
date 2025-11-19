@@ -29,6 +29,21 @@ class School extends BaseModel
             'total_negeri' => 'integer',
             'total_swasta' => 'integer',
             'total' => 'integer',
+            'rekap_sekolah_negeri' => 'integer',
+            'rekap_sekolah_swasta' => 'integer',
+            'rekap_sekolah_total' => 'integer',
+            'rekap_pd_negeri' => 'integer',
+            'rekap_pd_swasta' => 'integer',
+            'rekap_pd_total' => 'integer',
+            'rekap_guru_negeri' => 'integer',
+            'rekap_guru_swasta' => 'integer',
+            'rekap_guru_total' => 'integer',
+            'rekap_tendik_negeri' => 'integer',
+            'rekap_tendik_swasta' => 'integer',
+            'rekap_tendik_total' => 'integer',
+            'rekap_rombel_negeri' => 'integer',
+            'rekap_rombel_swasta' => 'integer',
+            'rekap_rombel_total' => 'integer',
         ];
     }
 }

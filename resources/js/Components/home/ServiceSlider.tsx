@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import Slider from 'react-slick';
-import CardV3 from '../cardv3/CardV3';
+import GradientCard from '../GradientCard';
 
 const ServiceSlider = () => {
   const settings = {
+    dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -13,16 +14,21 @@ const ServiceSlider = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024, // Desktop
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768, // Medium (Tablet)
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640, // Small (Mobile)
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -53,26 +59,21 @@ const ServiceSlider = () => {
   );
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-      <Slider {...settings}>
-        {data.map((item, index) => (
-          <CardV3 key={index} startColor="#1f1f1fff" endColor="#070707ff">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <span className="card-v3-icon">{item.icon}</span>
-              <p className="card-v3-title">{item.title}</p>
-              <p className="card-v3-sub-title">{item.subtitle}</p>
-            </div>
-          </CardV3>
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {/* Item 1 */}
+      {data.map((el, index) => (
+        <GradientCard
+          icon={el.icon}
+          title={el.title}
+          subtitle={el.subtitle}
+          isTransparent={false}
+          hasBorder={false}
+          textColor="text-black"
+          gradientFrom={'from-red-500'}
+          gradientTo={'to-yellow-500'}
+        />
+      ))}
+    </Slider>
   );
 };
 

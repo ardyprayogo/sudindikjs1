@@ -44,11 +44,13 @@ const CardV1: React.FC<CardV1Props> = ({
       hasBorder={hasBorder}
       borderColor={borderColor}
     >
-      <div className="emoji-box" style={emojiBoxStyle}>
-        {emoji}
+      <div className="flex flex-col items-start">
+        <div className="emoji-box" style={emojiBoxStyle}>
+          {emoji}
+        </div>
+        <h3 className="card-title">{title}</h3>
+        <span className="text-gray-900">{desc}</span>
       </div>
-      <h3 className="card-title">{title}</h3>
-      <span className="text-gray-900">{desc}</span>
     </Card>
   );
 };

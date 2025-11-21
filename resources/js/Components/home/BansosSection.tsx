@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '@/Components/section/Section';
-import BansosSlider from './BansosSlider';
+import Section from '@/Components/section/SectionV2';
+import BansosSlider from './BansosSliderV2';
 
 export default function BansosSection() {
   return (
@@ -11,7 +11,9 @@ export default function BansosSection() {
       gradientTitle={['#fff']}
       gradientSubTitle={['#fff']}
     >
-      <BansosSlider />
+      <div className="px-[15px]">
+        <BansosSlider />
+      </div>
     </Section>
   );
 }

@@ -1,6 +1,9 @@
 .section-container {
-  padding: 80px 20px; /* Padding atas bawah untuk memberi ruang */
-  overflow: hidden; /* Penting untuk gradasi pada teks */
+  padding: 80px 20px 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-content {
@@ -9,7 +12,6 @@
 }
 
 .section-title {
-  font-size: 2.5em; /* Ukuran judul utama */
   font-weight: bold;
   margin-bottom: 15px;
   line-height: 1.2;
@@ -19,9 +21,7 @@
 }
 
 .section-subtitle {
-  font-size: 1.2em;
   color: #555; /* Warna agak abu-abu untuk subtitle */
-  margin-bottom: 40px; /* Jarak antara subtitle dan wrapper item */
   width: 100%;
   text-align: center;
   margin-left: auto;
@@ -41,13 +41,5 @@
 @media (max-width: 768px) {
   .section-container {
     padding: 60px 15px;
-  }
-
-  .section-title {
-    font-size: 1.5em;
-  }
-
-  .section-subtitle {
-    font-size: 0.8em;
   }
 }

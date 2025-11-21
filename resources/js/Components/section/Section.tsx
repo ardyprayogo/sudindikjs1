@@ -54,11 +54,14 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <section className="section-container" style={sectionStyle}>
-      <h2 className="section-title" style={titleStyle}>
+      <h2 className="lg:text-4x section-title text-xl sm:text-2xl md:text-3xl" style={titleStyle}>
         {title}
       </h2>
       {subtitle && (
-        <p className="section-subtitle" style={subtitleStyle}>
+        <p
+          className="section-subtitle text-sm sm:text-base md:text-lg lg:text-xl"
+          style={subtitleStyle}
+        >
           {subtitle}
         </p>
       )}

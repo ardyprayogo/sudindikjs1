@@ -47,7 +47,7 @@ const Card = ({
   // Untuk saat ini, kita fokus membuat `background` dinamis.
 
   return (
-    <div className="card-container" style={cardStyle}>
+    <div className="card-container h-full w-full" style={cardStyle}>
       {children}
     </div>
   );

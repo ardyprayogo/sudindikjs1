@@ -32,7 +32,6 @@
 }
 
 .banner-content h1 {
-  font-size: 3em; /* Ukuran font lebih besar untuk judul utama */
   margin-bottom: 10px;
   font-weight: bold;
   letter-spacing: 2px; /* Sedikit jarak antar huruf */
@@ -40,7 +39,6 @@
 }
 
 .banner-content p {
-  font-size: 1.5em; /* Ukuran font untuk teks tambahan */
   margin-top: 0;
   font-weight: normal;
 }

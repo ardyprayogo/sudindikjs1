@@ -11,8 +11,10 @@ const BannerCarousel = () => {
       />
       <div className="banner-overlay">
         <div className="banner-content">
-          <h1>Sudin Pendidikan</h1>
-          <p>Kota Jakarta Selatan Wilayah 1</p>
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl">Sudin Pendidikan</h1>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl">
+            Kota Jakarta Selatan Wilayah 1
+          </p>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
-import Section from '@/Components/section/Section';
+import Section from '@/Components/section/SectionV2';
 import ServiceSlider from './ServiceSlider';
+import ResponsiveSlider from '../../ResponsiveSlider';
 
 export default function ServiceSection() {
   return (
@@ -11,7 +12,9 @@ export default function ServiceSection() {
       gradientTitle={['#fff']}
       gradientSubTitle={['#fff']}
     >
-      <ServiceSlider />
+      <div style={{ padding: '0px 15px' }}>
+        <ServiceSlider />
+      </div>
     </Section>
   );
 }

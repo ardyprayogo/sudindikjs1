@@ -11,7 +11,6 @@ type CardV2Props = {
 
 const CardV2: React.FC<CardV2Props> = ({ children, startColor, endColor, width, height }) => {
   const cardStyle: React.CSSProperties & Record<string, string | number> = {
-    width: width || '100%', // Lebar default jika tidak ditentukan
     height: height || '100%', // Tinggi default jika tidak ditentukan
     ['--start-color']: startColor || '#4CAF50', // Warna awal gradasi default (hijau)
     ['--end-color']: endColor || '#2196F3', // Warna akhir gradasi default (biru)

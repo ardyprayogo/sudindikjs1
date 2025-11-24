@@ -137,6 +137,24 @@ const Header = () => {
                     BPMS
                   </a>
                 </li>
+                <li>
+                  <a href="/rehab" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
+                    Rehab
+                  </a>
+                </li>
+                <li>
+                  <a href="/rehab" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
+                    ATS
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/sekolah-swasta-gratis"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Sekolah Swasta Gratis
+                  </a>
+                </li>
               </ul>
             </li>
             <li>

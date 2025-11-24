@@ -107,7 +107,7 @@ const HeadSlider = () => {
           title={item.title}
           imageSrc={item.imgPath}
           imageWidth={'w-[230px]'}
-          imageHeight={'h-[310px]'}
+          imageHeight={'h-[280px]'}
         />
       ))}
     </Slider>

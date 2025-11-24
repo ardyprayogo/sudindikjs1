@@ -39,6 +39,10 @@ Route::get('/kjmu', function () {
     return Inertia::render('Bantuan/KjmuPage');
 })->name('kjmu');
 
+Route::get('/bpms', function () {
+    return Inertia::render('Bantuan/BpmsPage');
+})->name('bpms');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

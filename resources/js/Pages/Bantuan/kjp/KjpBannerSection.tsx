@@ -10,7 +10,7 @@ export default function KjpBannerSection() {
       gradientTitle={['#fff']}
       gradientSubTitle={['#fff']}
     >
-      <div className="flex flex-col items-center gap-4 rounded-lg p-3 sm:flex-row">
+      <div className="flex flex-1 flex-col items-center gap-4 rounded-lg p-3 sm:flex-row">
         <div className="flex flex-shrink-0 items-center justify-center">
           <img
             src="/images/kjp.png"

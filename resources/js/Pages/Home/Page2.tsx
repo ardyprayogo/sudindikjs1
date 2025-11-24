@@ -9,7 +9,13 @@ export default function Page2() {
   return (
     <>
       <HeaderFooter>
-        <BannerCarousel />
+        <BannerCarousel
+          img={
+            'https://cdn.rri.co.id/berita-foto/Jakarta/o/1729388678907-IMG_1934/gojwieiabhcqod8.jpeg'
+          }
+          title={'Sudin Pendidikan'}
+          desc={'Kota Jakarta Selatan Wilayah 1'}
+        />
         <NewsSection />
         <ServiceSection />
         <StatisticSection />

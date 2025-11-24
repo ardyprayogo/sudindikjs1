@@ -43,6 +43,18 @@ Route::get('/bpms', function () {
     return Inertia::render('Bantuan/BpmsPage');
 })->name('bpms');
 
+Route::get('/rehab', function () {
+    return Inertia::render('Bantuan/RehabPage');
+})->name('rehab');
+
+Route::get('/ats', function () {
+    return Inertia::render('Bantuan/AtsPage');
+})->name('ats');
+
+Route::get('/sekolah-gratis', function () {
+    return Inertia::render('Bantuan/SekolahGratis');
+})->name('sekolah-gratis');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

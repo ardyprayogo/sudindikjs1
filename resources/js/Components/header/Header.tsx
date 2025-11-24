@@ -149,6 +149,22 @@ const Header = () => {
                 </li>
                 <li>
                   <a
+                    href="/tebus-ijazah"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Tebus Ijazah
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/revitalisasi"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Revitalisasi
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="/sekolah-swasta-gratis"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
                   >

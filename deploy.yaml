@@ -5,9 +5,9 @@ config:
   repository: "git@github.com:ardyprayogo/sudindikjs1.git"
   keep_releases: 2
 hosts:
-  103.245.38.187:
+  vm.sdnlebakbulus02.sch.id:
     staging:
-    hostname: 103.245.38.187
+    hostname: vm.sdnlebakbulus02.sch.id
     remote_user: deploy
     deploy_path: "~/modules/sudindikjs1"
     branch: development
@@ -18,7 +18,7 @@ hosts:
 tasks:
   npm:install:build:
     - cd: "{{release_path}}"
-    - run: "npm install && npm run build"
+    - run: "source $HOME/.nvm/nvm.sh && npm install && npm run build"
 
 after:
   deploy:failed: deploy:unlock
